@@ -1,9 +1,11 @@
 FROM node:20-alpine
 
 WORKDIR /usr/app
-# COPY ./ /usr/app
+
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN npm install
 
 COPY ./ ./
-RUN npm install
 
 CMD ["npm", "start"]
